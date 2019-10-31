@@ -3,6 +3,7 @@
 /*
  * 
  * Author: Oleg Antipov
+ *123
  */
 
 ini_set('display_errors', 1);
