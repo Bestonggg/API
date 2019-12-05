@@ -3,7 +3,11 @@
 /*
  * 
  * Author: Oleg Antipov
+<<<<<<< HEAD
  * 
+=======
+ *1234
+>>>>>>> 09288a413484c752396d1e9926667c05582b6b02
  */
 
 ini_set('display_errors', 1);
