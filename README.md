@@ -1,125 +1,176 @@
-
-Архитектура фреймворка GENERATION II (G2).
-=====================
-```
-├── app                                # Main file structure directory
-│   ├── subproject1                    # Directory Subproject1 
-│   │   └── model                      # Folder model
-│   │       └── Model1.php             # Model1 work to Database
-│   │       └── Model2.php             # Model2 work to Database
-│   │       └── ...                
-│   │   └── PublicNameController.php   # Access without security_key
-│   │   └── PrivateNameController.php  # Access with security_key
-│   ├── subproject2                    # Name Subproject2
-│   └── ...           
-│   
-├── core                               # engine directory G2
-├── frontend ***                       # Folder frontend to in progress
-│   ├── assets ***               
-│   ├── stylesheets ***              
-│   └── vendor ***                    
-├── index.php                          # Endpoint url
-└── .htaccess                          # htaccess rewriting all of requests to endpoint /index.php
-```
-
-
-Структура микросервиса 
+Backend. Работа с API фреймворком.
 =====================
 
-Микросервис (подпроект) - это каталог, который состоит из каталога model, PublicExampleController.php, PrivateExampleController.php .
-
-Каталог микросервиса хранится в корне каталога /app/ .
-
-Каждый микросервис отвечает за работу небольших компонентов системы, такие как авторизация и регистрация пользователей, работа с заявками, уведомления, новости и так далее. 
-
-Каталог model хранит в себе множество моделей (сущностей), которые работают с БД и выводят результат в виде JSON.
+### Разработчик backend всегда работает только в папке /app/ 
 
 
-### PublicExampleController.php
+Например, у нас есть такой Url, который возвращается json данные с базы данных.
+Данный адрес это API для метода getListUsers(). Данный момент получает список всех пользователей системы.
 
-Это публичный контроллер который не требует наличия security_key.
+site.ru/api/test/getListUsers
 
+Возвращает json с данными на экран
+```
+{"result":[{"id":"1","name":"Олег","surname":"Антипов","patronymic":"Алексеевич","status":"active","role":"user","avatar":null,"parent_id":null,"nickname":"oleg_antipov"},{"id":"4","name":"Второй","surname":"","patronymic":"","status":"unverified","role":"user","avatar":null,"parent_id":null,"nickname":""},{"id":"5","name":"Третий","surname":"","patronymic":"","status":"unverified","role":"user","avatar":null,"parent_id":null,"nickname":""}]}
+```
 
-### PrivateExampleController.php
-
-
-Это приватный контроллер который требует наличие security_key.
-
-security_key - это сгенерированный ключ, который записывается в cookie браузера после авторизации пользователя.
-
-
-
-BACKEND API G2
+Ключевое слово api
 =====================
 
-API предоставляется по ссылке http://site.ru/api/name_microservice/name_method?param1=1&param2=2
-
-Пример
-
-` https://g2.qzo.su/api/auth/getExample?id=1 `
-
-auth - название контроллера **Auth**Controller (/app/**auth**/**Auth**Controller.php)
-getExample - метод, которые вызывается в контроллере **Auth**Controller
+```
+/api/  -  это ключевое слово для обращения к API методам системы, которые взаимодествуют с данными БД, иначе говоря CRUD методы.
 
 ```
-class AuthController extends Controller{
+Все начинается с presenter!
+=====================
 
-	public function example(){ echo (new Authorization())->example(); }
+Для каждого микросервиса существует свой presenter. Это обычный класс, которые наследуется от базового презентера **/app/presenters/_MainPresenter.php** 
+В нем реализованы работы с фронтэндом, вывод страниц, виджетов, работа с переводом!
 
+
+```
+/api/test - слово test обозначает какой presenter используется, который в дальнейшем и запускает метод.
+			Для этого в проекте существует файл /app/presenters/TestPresenter.php
+```
+
+**После создания своего презентера, обязательно наследуйте _MainPresenter.php**
+
+Создадим тестовый презентер. В нем метод getListUsers, который создает экземпляр **класса Users**, и вызывает метод getListUsers.
+
+```
+<?php
+
+/*
+ * TestPresenter work to test
+ */
+
+class TestPresenter extends MainPresenter {
+
+	public function getListUsers(){
+
+		if($this->isSecurity()){
+			echo (new Users())->getListUsers();
+		} 
+
+	}
+
+}
+
+?>
+``` 
+
+В методе есть проверка на ключ сессии авторизации. 
+Это не обязательно, поскольку не во всех методах нужна проверка сессии пользователя.
+Например, если это главная страница, где получаются данные новостей и контента то авторизацию проверять нет необходимости, так же и с страницей авторизации и регистрации. 
+А вот информацию в личном кабинете, где выводятся ваши данные, там уже необходимо проверять был авторизирован пользователь или нет.
+
+** Фреймворк проверяет ключ автоматически и выводит ошибку если ключа нет при проверке доступа! **
+
+```
+
+if($this->isSecurity()){
 	...
 }
 
 ```
 
-** Формат возвращаемых данных в формате JSON **
 
-Функции и возможности Model
+Полный Url с доступом к Api
+
+```
+/api/test/getListUsers - слово getListUsers обозначает название метода, который запускает TestPresenter.php. 
+			Сам метод getListUsers осуществляет запрос к БД на получения данных о пользователях.
+```
+
+Если есть необходимость передать в url API какой - либо GET параметр, необзодимо писать так
+site.ru/api/test/getListUsers?var=1&var2=str
+ 
+
+
+Работа с моделями
 =====================
+Модели хранятся в папке /app/models/
+Модель представляет собой обычный класс, в котором описаны методы для взаимодествия с базой данных.
 
-### Работа с GET и POST параметрами
+Требования к модели:
+* простота реализации в методах
+* методы вызываемые презентером должны иметь доступ public
+* методы должны возвращать все в формате JSON (данные из БД, и ошибки)
 
-В Model существует массив $params_url, которые хранит в себе все переданные данные в запросе.
-
-Обратится к нему можно так:
-` self::$params_url['id'] `,
-где id - это ключевое имя параметра в запросе.
-
-
-### Отправка даных в формат JSON 
-
-Функция $this->viewJSON($data = null, $error = '', $type = null)
-	$data - данные, которые необходимо преобразовать в JSON,
-	$error - переменная, содержащая в себе данные об ошибке
-	$type - (по умолчанию равен null), 
-			если $type = "mobile", то данные вернутся с callback
-			если $type = null, то данные вернутся без callback
+Пример модели Users. В модели есть метод для получения списка пользователей в формате JSON.
 
 ```
-$this->viewJSON($data);
-$this->viewJSON(array('error' => array("text" => "Text error", "code" => 1010))); - пример вывода ошибок
-$this->viewJSON($data, "mobile");
+<?php
+ 
+class Users {
+
+
+    public function getListUsers(){
+        $result = _MainModel::table("users_cards")->get()->send();
+        
+        _MainModel::viewJSON($result);   
+    }
+
+}
+
+?>
 
 ```
+
+
 
 Работа с БД
 =====================
 
+В фреймворке существует базовая модель _MainModel.php, которая упрощает работу с запросами к БД. В ней реализован механизм PDO.
+Обратите внимание, что не все запросы можно выполнить с помощью базовой модели. 
+
+**В системной модели _DB.php реализован механизм подключения к базе данных. Свое подключения реализовывать нет необходимости.**
+
+### Измените данные конфигурации к подключению БД
+
+В корне проекта находится файл config.php
+Замените данные подключения в файле.
+
+```
+
+<?php
+
+self::$config['database'] = array(
+    'hostname' => 'localhost',
+    'username' => 'user_login',
+    'password' => 'password',
+    'dbname' => 'db'
+);
+
+self::$config['salt'] = "dlkcmdfv(4&*4mvnKDNAP)_)kdldi12cdl::L847GTe]|";
+
+?>
+
+```
+
+
 ### 1.Выборка 
 
 ```
-Model::table("x16_table")->get(array("id", "login"))->filter(array("id" => 1))->sort("id", "desc")->pagination(0,6)->send()
+_MainModel::table("table")->get(array("id", "login"))->filter(array("id" => 1))->sort("id", "desc")->pagination(0,6)->send();
+
+объяснение:
 
 ->get(array("field1", "field2")) - список полей, которые получаем из таблицы
 ->get() - получаем все поля из таблицы
 
-->filter(array("field1" => 1, "field2" => "example")) -  сравниваем поля 
+->filter(array("field1" => 1, "field2" => "example")) -  аналог WHERE SQL запросе, field - столбец, 1 - значение, которому должен быть равен.
+Если перевести на SQL запрос
+WHERE field1 = 1 AND field2 = "example"
 
-->sort("id", "desc") - сортировка поля id по DESC 
-->sort("id", "asc") - сортировка поля id по ASC
 
-->pagination(0,6) - указываем LIMIT 0, 6
+->sort("id", "desc") - аналог ORDER BY в SQL запросе, сортировка поля id по возрастанию, DESC 
+->sort("id", "asc") - аналог ORDER BY в SQL запросе, сортировка поля id по убыванию, ASC
 
-->send() - отправка запроса 
+->pagination(0,6) - аналог LIMIT 0, 6 ы SQL запросе
+
+->send() - отправка запроса и возвращение данных с запроса! 
 
 ```
 
@@ -127,70 +178,148 @@ Model::table("x16_table")->get(array("id", "login"))->filter(array("id" => 1))->
 ### 2.Добавление новых записей 
 
 ```
-Model::table("x16_table")->add(array("login" => "example@gmail.com", "pass" => "dfvkldfmlcdkfv"))->send(); 
+_MainModel::table("table")->add(array("login" => "example@gmail.com", "pass" => "dfvkldfmlcdkfv"))->send(); 
 
 ->add(array("login" => "example@gmail.com", "pass" => "dfvkldfmlcdkfv")) - заполняем поле таблицы login и pass данными
 
-->send() - отправка запроса
+Если перевести в SQL запрос
+INSERT INTO `table` (`login`, `pass`) VALUES ("example@gmail.com", "dfvkldfmlcdkfv");
+
+->send() - отправка запроса и получение id вставленной записи!
 
 ```
 
 ### 3.Редактирование записей 
 
 ```
-Model::table("x16_table")->edit(array("field1" => $field1, "field2" => $field2), array("id" => 1))->send()
+_MainModel::table("table")->edit(array("field1" => "значение1", "field2" => "значение2"), array("id" => 1))->send()
 
-->edit(array("field1" => $field1, "field2" => $field2) - заполняем поля таблицы данными, которые хотим отредактировать
+->edit(array("field1" => "значение1", "field2" => "значение2") - заполняем поля таблицы данными, которые хотим отредактировать
 
-->send() - отправка запроса
+->send() - отправка запроса, при редактировании нечего не возвращается.
+
+UPDATE `table` SET `field1` = 'значение1', `field2` = 'значение2' WHERE `table`.`id` = 1;
 
 ```
 
 ### 4.Удаление 
+```
+_MainModel::table("table")->delete(array("id" => 4))->send();
 
-` Model::table("x16_table")->delete(array("id" => 4))->send(); `
+Если перевести в SQL запрос
+
+DELETE FROM table WHERE id = 4;
+
+->send() - отправка запроса, при редактировании нечего не возвращается.
+
+```
 
 ### 5.Собственный запрос PDO
 
 ```
 $stmt = self::$db->prepare("SELECT * FROM  `x16_table` WHERE id= :id AND status = :status");
 
-$result_query = $stmt->execute(array(":id" => self::$params_url['id'], ":status" => self::$params_url['status']));
+$result_query = $stmt->execute(array(":id" => _MainModel::$params_url['id'], ":status" => _MainModel::$params_url['status']));
 
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC); 
 
-$this->viewJSON($rows);
+_MainModel::viewJSON($rows);
 
-// где self::$params_url['id'] - это GET или POST параметр, переданный в запросе.
+// где _MainModel::$params_url['id'] - это GET или POST параметр, переданный в запросе.
+
 ```
-### 5. Метод Model::getQuery()
+### 5. Метод _MainModel::getQuery()
 
 Получение отправляемого запроса в БД
 
 ```
+
 SELECT id FROM x16_users WHERE login= :filter_login AND password= :filter_password
+
+```
+
+### Пример вывода ошибок
+
+Для вывода ошибок можно использовать пример
+
+```
+_MainModel::viewJSON(["error" => "text error"]);
 ```
 
 
-
-Работа с фронтендом
+Frontend. Работа со страницами и их содержимым.
 =====================
 
-### Структура каталога frontend
+### Разработчик frontend всегда работает только в папках /assets/, /layouts/, /widgets/ 
 
-...
+В данном фреймворке реализована работа с Web компонентами. Подробней можно почитать в [официальной документации](https://www.webcomponents.org/introduction)
 
-### Работа со страницами
+### Папка assets
 
-Пример URL страницы https://site.ru/page
+В ней хранятся все внешние библиотеки которые используются в проекте. Например, Bootstra4, jQuery, различные API.
 
-page - название страницы, она находится по /app/frontend/pages/page.html
+### Папка layouts
+
+В ней хранятся каталоги (subproject), которые есть в проекте. 
+
+Например, у нас есть интернет-магазин, который состоит из:
+* сайта с товарами
+* личного кабинет для пользователей (список заказов, корзина и т.д.)
+* панель администрирования интернет-магазином (добавление товаров, категорий и т.д.)
+
+В данном примере мы выделили 3 основных составляющих для subproject. Они и будут разделять на три каталога.
+
+Пример:
+* /layouts/site/
+* /layouts/account/
+* /layouts/admin/
+
+Далее отдельные страницы для сайта (страница авторизации, вывода товаров и категорий, страница с формой оформления заказа и так далее) будут хранится так же в отдельных папках:
+
+* /layouts/site/page1/
+* /layouts/site/page2/
+* /layouts/site/pageN/
+* ...
+
+Структура файлов отдельных страниц выглядит следующим образом:
+
+* index.html - страница,
+* style.css - каскадная таблица стилей CSS,
+* script.js - скрипт написанный на языке JavaScript.
 
 
-Панель администрирования проектов
-=====================
+### Папка widgets
 
-> Здесь ведутся технические работы с блэк джеком и кодом
+Виджеты - это отдельные компоненты страницы, такие как например, таблица, меню, форма авторизации и регистриаци и т.д. Они не являются полноценными страницами, лишь частью их. 
+В этой папке хранятся каталоги различных виджетов, используемых в web - приложении. 
+
+Каталог отдельного виджета состоит из:
+
+* index.html - виджет,
+* style.css - каскадная таблица стилей CSS для виджета,
+* script.js - скрипт написанный на языке JavaScrip для виджета.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
