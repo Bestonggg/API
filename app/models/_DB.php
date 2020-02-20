@@ -5,7 +5,7 @@ class DB {
 	public static $db;
 	public static $config = [];
 
-	function __construct (){ $this->connect(); }
+	// function __construct (){ }
 
     public function connect () {
 

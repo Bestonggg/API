@@ -50,7 +50,9 @@ class _Router {
                         echo "ERROR! Method empty  ";
                     }
                 }else{
-                     echo "ERROR! Not found presenter " . $this->route[2];
+                    if(!empty($this->route[2]) && !empty($this->route[3]) ){
+                        _MainModel::getApi($this->route[2], $this->route[3]);
+                    }
                 }
             }
             

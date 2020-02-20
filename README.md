@@ -44,11 +44,11 @@ site.ru/api/test/getListUsers
  * TestPresenter work to test
  */
 
-class TestPresenter extends MainPresenter {
+class TestPresenter extends _MainPresenter {
 
 	public function getListUsers(){
 
-		if($this->isSecurity()){
+		if(self::isSecurity()){
 			echo (new Users())->getListUsers();
 		} 
 
@@ -68,12 +68,25 @@ class TestPresenter extends MainPresenter {
 
 ```
 
-if($this->isSecurity()){
+if(self::isSecurity()){
 	...
 }
 
 ```
 
+Если пользователь авторизировался успешно, получить id пользователя можно в любой своей модели.
+
+```
+$id = UsersTokens::getID();
+
+```
+
+Так же можно получить его роль.
+
+```
+$role = UsersTokens::getRole();
+
+```
 
 Полный Url с доступом к Api
 
