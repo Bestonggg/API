@@ -12,7 +12,9 @@ class TestPresenter extends _MainPresenter {
 	public function getListUsers(){
 
 		if($this->isSecurity()){
-			echo (new Users())->getListUsers();
+			//echo (new Users())->getListUsers();
+			echo "12345667890";
+			
 		} 
 
 	}
