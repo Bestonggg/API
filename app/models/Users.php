@@ -35,5 +35,5 @@ class Users extends _MainModel{
          }
 
 }
-
+}
 ?>
