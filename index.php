@@ -30,5 +30,5 @@ $include->autoload();
 //роутер
 $router = new _Router();
 $router->initialization();
-
+// comment
 ?>
