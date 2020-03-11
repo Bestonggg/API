@@ -23,12 +23,12 @@ class Users extends _MainModel{
          {
             if( self::$params_url['id'] != '')
                 {
-                    var_dump("yes");
+                    var_dump("есть");
                 }
                 
                 else
                 {
-                    var_dump("no");
+                    var_dump("пусто");
                 }
         
             _MainModel::viewJSON($result);  
