@@ -17,7 +17,7 @@ class TestPresenter extends _MainPresenter {
 			
 			
 		} 
-*/
+
 	}
 
 	/* labels */
