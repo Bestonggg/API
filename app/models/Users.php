@@ -5,10 +5,9 @@ class Users extends _MainModel{
 
     public function getListUsers(){
 
-        $result = 821;
-        //_MainModel::table("users_cards")->get()->send();
+        $result = _MainModel::table("users_cards")->get()->send();
 
-       /* var_dump(self::check('id'));
+        var_dump(self::check('id'));
         
          if(self::check(self::$params_url['id']))
          {
@@ -33,8 +32,8 @@ class Users extends _MainModel{
                 }
         
             _MainModel::viewJSON($result);  
-         }*/
- _MainModel::viewJSON($result); 
+         }
+ 
 }
 }
 ?>
