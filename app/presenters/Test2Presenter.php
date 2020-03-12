@@ -18,7 +18,12 @@ class Test2Presenter extends _MainPresenter {
                 "sony" => "Sony XPeria Z3");
                 
                 _MainModel::viewJSON($phones);
-		} 
+		}
+		
+		public function getListLang()
+		{
+		echo (new Languages())->getListLang();
+		}
 
 	}
 
