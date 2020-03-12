@@ -11,6 +11,7 @@ class Test2Presenter extends _MainPresenter {
 
 	public function printJSON(){
 	
+	//hjk
 
 	
 	$phones = array("apple"=>"iPhone5", 
