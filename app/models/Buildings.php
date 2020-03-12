@@ -10,7 +10,7 @@ _MainModel::viewJSON($result);
 }
 
 
-public fuction addNewBuilding(){
+public function addNewBuilding(){
 _MainModel::table("buildings")->add(array("town" => 7, "street" => 7,"number"=>7))->send(); 
 }
 
