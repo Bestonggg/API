@@ -3,7 +3,7 @@
 
  public function getListLang()
  {
-     $result= _MainModel::table("Languages")->get(array("id", "language"))->send();
+     $result= _MainModel::table("languages")->get(array("id", "language"))->send();
      _MainModel::viewJSON($result);
  }
 }
