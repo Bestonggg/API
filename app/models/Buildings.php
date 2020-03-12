@@ -1,9 +1,7 @@
 <?
 class Buildings extends _MainModel{
 
-private $town="";
-private $street="";
-private $number="";
+
 
 public function getListBuildings(){
 
@@ -13,7 +11,7 @@ _MainModel::viewJSON($result);
 
 
 public fuction addNewBuilding(){
-_MainModel::table("buildings")->add(array("town" => $town, "street" => $street,"number"=>$number))->send(); 
+_MainModel::table("buildings")->add(array("town" => 7, "street" => 7,"number"=>7))->send(); 
 }
 
 }
