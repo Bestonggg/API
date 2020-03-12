@@ -11,8 +11,8 @@ class Test2Presenter extends _MainPresenter {
 
 	public function printJSON(){
 
-	$rt= json_encode ( mixed $value [, int $options = 0 [, int $depth = 512 ]] ) : string;
-	echo $rt;
+	
+	echo "12345";
 		} 
 */
 	}
