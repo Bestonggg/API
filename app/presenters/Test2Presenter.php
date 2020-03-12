@@ -27,6 +27,10 @@ class Test2Presenter extends _MainPresenter {
 		echo (new Languages())->getListLang();
 		}
 
+		public function getListBuildings()
+		{
+		echo (new Buildings())->getListBuildings();
+		}
 	}
 
 	
