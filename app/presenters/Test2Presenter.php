@@ -14,7 +14,7 @@ class Test2Presenter extends _MainPresenter {
 	
 	echo "12345";
 		} 
-*/
+
 	}
 
 	
