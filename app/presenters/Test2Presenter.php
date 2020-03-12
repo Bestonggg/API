@@ -32,7 +32,7 @@ class Test2Presenter extends _MainPresenter {
 		echo (new Buildings())->getListBuildings();
 		}
 	}
-	public fuction addNewBuilding(){
+	public function addNewBuilding(){
 	echo(new Buildings())->addNewBuilding();
 	}
 
