@@ -12,7 +12,12 @@ class Test2Presenter extends _MainPresenter {
 	public function printJSON(){
 
 	
-	echo "12345";
+	$phones = array("apple"=>"iPhone5", 
+                "samsumg"=>"Samsung Galaxy III", 
+                "nokia" => "Nokia N9", 
+                "sony" => "Sony XPeria Z3");
+                
+                _MainModel::viewJSON($phones);
 		} 
 
 	}

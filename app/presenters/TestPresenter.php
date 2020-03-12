@@ -10,13 +10,14 @@
 class TestPresenter extends _MainPresenter {
 
 	public function getListUsers(){
-
+echo (new Users())->getListUsers();
 	
-		if($this->isSecurity()){
-			echo (new Users())->getListUsers();
+	
+		//if($this->isSecurity()){
+			//echo (new Users())->getListUsers();
 			
 			
-		} 
+		//} 
 
 	}
 
