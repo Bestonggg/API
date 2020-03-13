@@ -37,7 +37,7 @@ class BuildingPresenter extends _MainPresenter {
         }
 	    
 	    public function getListRooms(){
-	      echo (new Floors())->getListRooms();
+	      echo (new Rooms())->getListRooms();
         }
 }
 ?>
