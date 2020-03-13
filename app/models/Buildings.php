@@ -15,5 +15,12 @@ $test=_MainModel::table("buildings")->add(array("town" => 7, "street" => 7,"numb
 _MainModel::viewJSON($test);
 }
 
+
+public function updateBuilding(){
+_MainModel::table("buildings")->edit(array("town" => "значение1", "street" =>"значение2","number"=>"value3"), array("id" => 1))->send();
+}
+
+
+
 }
 ?>
