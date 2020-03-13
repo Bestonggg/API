@@ -1,27 +1,12 @@
 <?
 class Buildings extends _MainModel{
 
-public $town;
-public $street;
-public $number;
-public $id;
+public $town=$_GET['town'];
+public $street=$_GET['street'];
+public $number=$_GET['number'];
+public $id=$_GET['id'];
 
-//if(isset($_GET['town'])){
- 
-   $this->town = $_GET['town'];
-//}
-//if(isset($_GET['street'])){
- 
-    $this->street = $_GET['street'];
-//}
-//if(isset($_GET['number'])){
- 
-   $this->number = $_GET['number'];
-//}
-//if(isset($_GET['id'])){
- 
-    $this->id = $_GET['id'];
-//}
+/
 //Вывод списка зданий
 public function getListBuildings(){
 $result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
