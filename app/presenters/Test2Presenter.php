@@ -31,11 +31,11 @@ class Test2Presenter extends _MainPresenter {
 		{
 		echo (new Buildings())->getListBuildings();
 		}
-	}
+	
 	public function addNewBuilding(){
 	echo(new Buildings())->addNewBuilding();
 	}
-
+}d
 	
 
 
