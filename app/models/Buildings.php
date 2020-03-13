@@ -2,9 +2,9 @@
 class Buildings extends _MainModel{
 
 public $town;
-public $street=" ";
-public $number="";
-public $id=1;
+public $street;
+public $number;
+public $id;
 
 //if(isset($_GET['town'])){
  
