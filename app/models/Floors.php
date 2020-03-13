@@ -7,7 +7,7 @@ public $building_id;
 
 //Вывод списка этажей
 public function getListFloors(){
-$result= _MainModel::table("floors")->get(array("id", "plan","building_id"))->->pagination(0,6)->send();
+$result= _MainModel::table("floors")->get(array("id", "plan","building_id"))->pagination(0,6)->send();
 if($result!=null)
 _MainModel::viewJSON($result);
 else _MainModel::viewJSON(["error" => "text error"]);
