@@ -11,7 +11,8 @@ _MainModel::viewJSON($result);
 
 
 public function addNewBuilding(){
-_MainModel::table("buildings")->add(array("town" => 7, "street" => 7,"number"=>7))->send(); 
+$test=_MainModel::table("buildings")->add(array("town" => 7, "street" => 7,"number"=>7))->send(); 
+_MainModel::viewJSON($test);
 }
 
 }
