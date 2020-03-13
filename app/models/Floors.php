@@ -1,7 +1,7 @@
 <?
 class Floors extends _MainModel{
 
-public $id;
+public $id=0;
 public $plan=123;
 public $building_id=1;
 
@@ -15,7 +15,7 @@ else _MainModel::viewJSON(["error" => "text error"]);
 }
 //Добавление этажа
 public function addNewFloor(){
-$result=_MainModel::table("floors")->add(array("plan" => $this->plan, "building_id" => $this->building_id))->send(); 
+$result=_MainModel::table("floors")->add(array("id"=>$this->id,"plan" => $this->plan, "building_id" => $this->building_id))->send(); 
 if($result!=null)
 _MainModel::viewJSON($result);
 else _MainModel::viewJSON(["error" => "text error"]);
