@@ -37,7 +37,7 @@ class Test2Presenter extends _MainPresenter {
 	}
 	
 	public function updateBuilding(){
-	new Buildings())->updateBuilding();
+	new Buildings()->updateBuilding();
 	}
 }
 	
