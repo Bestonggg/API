@@ -15,14 +15,14 @@ else _MainModel::viewJSON(["error" => "text error"]);
 }
 
 public function addNewFloor(){
-$result=_MainModel::table("floors")->add(array("plan" => $plan, "building_id" => $building_id))->send(); 
+$result=_MainModel::table("floors")->add(array("plan" => $this->$plan, "building_id" => $this->$building_id))->send(); 
 if($result!=null)
 _MainModel::viewJSON($result);
 else _MainModel::viewJSON(["error" => "text error"]);
 }
 
 public function deleteFloor(){
-_MainModel::table("floors")->delete(array("id" => $id))->send();
+_MainModel::table("floors")->delete(array("id" => $this->$id))->send();
 }
 }
 ?>
