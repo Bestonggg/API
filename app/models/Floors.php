@@ -2,8 +2,8 @@
 class Floors extends _MainModel{
 
 public $id;
-public $plan;
-public $building_id;
+public $plan=1;
+public $building_id=1;
 
 //Вывод списка этажей
 public function getListFloors(){
