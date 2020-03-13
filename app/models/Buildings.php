@@ -7,7 +7,7 @@ public $number="";
 public $id=1;
 //Вывод списка зданий
 public function getListBuildings(){
-$result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->filter(array("street" =>$this->street))->pagination(0,6)->send();
+$result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
 if($result!=null)
 _MainModel::viewJSON($result);
 else _MainModel::viewJSON(["error" => "Данные не найдены"]);
