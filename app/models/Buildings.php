@@ -1,10 +1,10 @@
 <?
 class Buildings extends _MainModel{
 
-public $town=$_GET['town'];
-public $street=$_GET['street'];
-public $number=$_GET['number'];
-public $id=$_GET['id'];
+public $town;
+public $street;
+public $number;
+public $id;
 
 
 //Вывод списка зданий
