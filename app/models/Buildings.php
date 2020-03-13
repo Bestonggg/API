@@ -6,7 +6,7 @@ public $street=$_GET['street'];
 public $number=$_GET['number'];
 public $id=$_GET['id'];
 
-/
+
 //Вывод списка зданий
 public function getListBuildings(){
 $result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
