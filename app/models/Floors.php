@@ -15,7 +15,7 @@ else _MainModel::viewJSON(["error" => "text error"]);
 }
 
 public function addNewFloor(){
-$result=_MainModel::table("floors")->add(array("plan" => (new User())->$plan, "building_id" => (new User())->$building_id))->send(); 
+$result=_MainModel::table("floors")->add(array("plan" => (new Floors())->$plan, "building_id" => (new Floors())->$building_id))->send(); 
 if($result!=null)
 _MainModel::viewJSON($result);
 else _MainModel::viewJSON(["error" => "text error"]);
