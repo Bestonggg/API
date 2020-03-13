@@ -2,7 +2,7 @@
 class Floors extends _MainModel{
 
 public $id;
-public $plan=1;
+public $plan=123;
 public $building_id=1;
 
 //Вывод списка этажей
