@@ -24,5 +24,10 @@ else _MainModel::viewJSON(["error" => "text error"]);
 public function deleteFloor(){
 _MainModel::table("floors")->delete(array("id" => $this->id))->send();
 }
+//Редактирование этажа
+public function updateFloor(){
+_MainModel::table("floors")->edit(array("plan" => $this->plan, "building_id" =>$this->building_id), array("id" => $this->id))->send(); 
+}
+
 }
 ?>
