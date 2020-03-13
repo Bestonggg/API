@@ -5,7 +5,7 @@ class Buildings extends _MainModel{
 
 public function getListBuildings(){
 
-$result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->filter(array("street" =>"Lenin"))->sort("id", "desc")->pagination(0,6)->send();
+$result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->filter(array("street" =>"Lenin"))->pagination(0,6)->send();
 _MainModel::viewJSON($result);
 }
 
