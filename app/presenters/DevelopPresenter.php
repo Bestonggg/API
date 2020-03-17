@@ -12,7 +12,7 @@ class DevelopPresenter extends _MainPresenter {
 	public function getTables(){
 
 		// if($this->isSecurity()){
-			//echo (new Develop())->getTables();
+			echo (new Develop())->getTables();
 		// } 
 
 	}
