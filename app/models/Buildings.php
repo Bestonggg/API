@@ -1,10 +1,10 @@
 <?
 class Buildings extends _MainModel{
 
-public $town="";
-public $street="";
-public $number="";
-public $id="";
+public $town;
+public $street;
+public $number;
+public $id;
 
 function __construct (){
 

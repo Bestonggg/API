@@ -1,9 +1,30 @@
 <?
 class Rooms extends _MainModel{
-public $id;
-public $room_name;
-public $floor_id;
-public $tag;
+public $id="";
+public $room_name="";
+public $floor_id="";
+public $tag="";
+
+function __construct (){
+
+if(isset($_GET['id'])){
+ $this->id = $_GET['id'];
+}
+
+if(isset($_GET['room_name'])){
+ 
+    $this->room_name = $_GET['room_name'];
+}
+
+if(isset($_GET['floor_id'])){
+ 
+    $this->floor_id = $_GET['floor_id'];
+}
+
+f(isset($_GET['tag'])){
+ 
+    $this->tag = $_GET['tag'];
+}
 
 //Вывод списка
 public function getListRooms(){
