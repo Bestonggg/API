@@ -10,6 +10,7 @@ function __construct (){
 //if(isset($_GET['town'])){
  
  var_dump(123);
+ var_dump($_GET);
     $town = $_GET['town'];
 //}
 //if(isset($_GET['street'])){
