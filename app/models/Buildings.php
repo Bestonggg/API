@@ -7,23 +7,25 @@ public $number;
 public $id;
 
 public function getParams(){
-if(isset($_GET['town'])){
+//if(isset($_GET['town'])){
  
     $town = $_GET['town'];
-}
-if(isset($_GET['street'])){
+//}
+//if(isset($_GET['street'])){
  
     $street = $_GET['street'];
-}
+//}
 
-if(isset($_GET['number'])){
+//if(isset($_GET['number'])){
  
     $number = $_GET['number'];
-}
-if(isset($_GET['id'])){
+//}
+//if(isset($_GET['id'])){
  
     $id = $_GET['id'];
-}
+//}
+
+$this->getParams();
 }
 //Вывод списка зданий
 public function getListBuildings(){
