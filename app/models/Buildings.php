@@ -42,7 +42,7 @@ else _MainModel::viewJSON(["error" => "Данные не найдены"]);
 public function addNewBuilding(){
 
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
-var_dump($htis);
+var_dump($this);
 if($result!=null)
 _MainModel::viewJSON($result);
 
