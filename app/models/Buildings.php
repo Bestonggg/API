@@ -6,7 +6,7 @@ public $street;
 public $number;
 public $id;
 
-if(isset($_GET['town'])){
+if(isset($_GET["town"])){
  
     $town = $_GET['town'];
 }
