@@ -25,7 +25,7 @@ if(isset($_GET['tag'])){
  
     $this->tag = $_GET['tag'];
 }
-
+}
 //Вывод списка
 public function getListRooms(){
   $result= _MainModel::table("rooms")->get(array("id", "room_name","floor_id","tag"))->send();
