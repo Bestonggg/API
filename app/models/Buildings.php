@@ -9,6 +9,7 @@ public $id="";
 function __construct (){
 //if(isset($_GET['town'])){
  
+ var_dump(123);
     $town = $_GET['town'];
 //}
 //if(isset($_GET['street'])){
