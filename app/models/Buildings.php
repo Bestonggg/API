@@ -29,7 +29,7 @@ if(isset($_GET['id'])){
     $this->id = $_GET['id'];
 }
 else{
-_MainModel::viewJSON(["error" => "Данные не найдены"]);
+_MainModel::viewJSON(["error" => "Неверные параметры"]);
 }
 
 }
