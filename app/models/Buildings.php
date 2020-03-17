@@ -44,8 +44,9 @@ public function addNewBuilding(){
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 if($result!=null)
 _MainModel::viewJSON($result);
-var_dump($result);
+
 else _MainModel::viewJSON(["error" => "Данные не найдены"]);
+var_dump($result);
 }
 
 //Редактирование записи
