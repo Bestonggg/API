@@ -1,9 +1,9 @@
 <?
 class Rooms extends _MainModel{
-public $id="";
-public $room_name="";
-public $floor_id="";
-public $tag="";
+public $id;
+public $room_name;
+public $floor_id;
+public $tag;
 
 function __construct (){
 
