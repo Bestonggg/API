@@ -6,6 +6,23 @@ public $street;
 public $number;
 public $id;
 
+if(isset($_GET['town'])){
+ 
+    $town = $_GET['town'];
+}
+if(isset($_GET['street'])){
+ 
+    $street = $_GET['street'];
+}
+
+if(isset($_GET['number'])){
+ 
+    $number = $_GET['number'];
+}
+if(isset($_GET['id'])){
+ 
+    $id = $_GET['id'];
+}
 
 //Вывод списка зданий
 public function getListBuildings(){
