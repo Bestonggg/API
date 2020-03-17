@@ -11,20 +11,20 @@ function __construct (){
  
  var_dump(123);
  var_dump($_GET);
-    $town = $_GET['town'];
+    $this->town = $_GET['town'];
 //}
 //if(isset($_GET['street'])){
  
-    $street = $_GET['street'];
+    $this->street = $_GET['street'];
 //}
 
 //if(isset($_GET['number'])){
  
-    $number = $_GET['number'];
+    $this->number = $_GET['number'];
 //}
 //if(isset($_GET['id'])){
  
-    $id = $_GET['id'];
+    $this->id = $_GET['id'];
     
 //}
 
