@@ -42,11 +42,12 @@ else _MainModel::viewJSON(["error" => "Данные не найдены"]);
 public function addNewBuilding(){
 
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
+var_dump($result);
 if($result!=null)
 _MainModel::viewJSON($result);
 
 else _MainModel::viewJSON(["error" => "Данные не найдены"]);
-var_dump($result);
+
 }
 
 //Редактирование записи
