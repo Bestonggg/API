@@ -20,10 +20,12 @@ function __construct (){
  
     $number = $_GET['number'];
 //}
-//if(isset($_GET['id'])){
+if(isset($_GET['id'])){
  
     $id = $_GET['id'];
-//}
+    
+}
+else $id=1;
 
 }
 //Вывод списка зданий
