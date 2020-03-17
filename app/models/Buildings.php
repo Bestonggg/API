@@ -6,7 +6,7 @@ public $street;
 public $number;
 public $id;
 
-public function getParams(){
+public static function getParams(){
 //if(isset($_GET['town'])){
  
     $town = $_GET['town'];
@@ -25,7 +25,7 @@ public function getParams(){
     $id = $_GET['id'];
 //}
 
-$this->getParams();
+self::getParams();
 }
 //Вывод списка зданий
 public function getListBuildings(){
