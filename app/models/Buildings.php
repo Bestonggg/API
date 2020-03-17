@@ -6,6 +6,7 @@ public $street;
 public $number;
 public $id;
 
+public function getParams(){
 if(isset($_GET["town"])){
  
     $town = $_GET['town'];
@@ -23,7 +24,7 @@ if(isset($_GET['id'])){
  
     $id = $_GET['id'];
 }
-
+}
 //Вывод списка зданий
 public function getListBuildings(){
 $result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
