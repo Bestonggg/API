@@ -21,7 +21,7 @@ if(isset($_GET['floor_id'])){
     $this->floor_id = $_GET['floor_id'];
 }
 
-f(isset($_GET['tag'])){
+if(isset($_GET['tag'])){
  
     $this->tag = $_GET['tag'];
 }
