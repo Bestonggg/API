@@ -28,9 +28,7 @@ if(isset($_GET['id'])){
  
     $this->id = $_GET['id'];
 }
-else{
-_MainModel::viewJSON(["error" => "Неверные параметры"]);
-}
+
 
 }
 //Вывод списка зданий
