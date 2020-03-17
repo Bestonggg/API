@@ -53,7 +53,10 @@ else _MainModel::viewJSON(["error" => "Данные не найдены"]);
 public function updateBuilding(){
 _MainModel::table("buildings")->edit(array("town" => $this->town, "street" =>$this->street,"number"=>$this->number), array("id" => $this->id))->send();
 }
-
+//Удаление здания
+public function deleteBuilding(){
+_MainModel::table("buildings")->delete(array("id" => $this->id))->send();
+}
 
 
 }

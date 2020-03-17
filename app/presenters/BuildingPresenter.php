@@ -20,6 +20,10 @@ class BuildingPresenter extends _MainPresenter {
 	     echo( new Buildings())->updateBuilding();
 	    }
 
+	    public function deleteBuilding(){
+	    echo(new Buildings())->deleteBuilding();
+	    }
+        
 	    public function getListFloors(){
 	     echo (new Floors())->getListFloors();
 	    }
