@@ -24,8 +24,11 @@ if(isset($_GET['number'])){
     
 }
 
-if(isset($_GET['id'])){
- 
+if(empty($_GET['id'])){
+die();
+}
+else
+ {
     $this->id = $_GET['id'];
 }
 
