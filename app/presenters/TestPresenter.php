@@ -10,8 +10,8 @@ echo $test;
 }
 
 public function info() {
-
-echo "Эщекере";
+$test=8;
+echo "Эщекере".$test;
 }
 
 }
