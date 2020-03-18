@@ -34,7 +34,7 @@ else{
                                            
 }
 
-
+}
 //Метод проверки параметров GET
 /*public function checkParams(){
     if(!isset($_GET['town']) && !isset( $_GET['street']) && !isset( $_GET['number']))
