@@ -43,10 +43,7 @@ else _MainModel::viewJSON(["error" => "Данные не найдены"]);
 
 //Добавление записи
 public function addNewBuilding(){
-if(empty($_GET['town']&&$_GET['street']&&$_GET['numder']){
-_MainModel::viewJSON(["error" => "Неверные параметры"]);
-die();
-}
+
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
 if($result!=null)
