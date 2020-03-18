@@ -32,13 +32,7 @@ if(isset($_GET['id'])){
 
 }
 //Метод проверки параметров GET
-public function checkParams(){
-   if(isset($_GET['town'])&&isset($_GET['street'])&&isset($_GET['number'])){
-  
-   return 0;
-   }
-   else return -1;
-}
+
 
 //Вывод списка зданий
 public function getListBuildings(){
@@ -52,18 +46,19 @@ else _MainModel::viewJSON(["error" => "Данные не найдены"]);
 
 //Добавление записи
 public function addNewBuilding(){
- $status= $this->checkParams();
- var_dump($_GET);
-if($status==0){
+ 
+  if(isset($_GET['town'])&&isset($_GET['street'])&&isset($_GET['number'])){
+  
+
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
 if($result!=null)
 _MainModel::viewJSON($result);
 
-else _MainModel::viewJSON(["error" => "Данные не найдены"]);
+else _MainModel::viewJSON(["error" => "Ошибка заполнения"]);
 }
 else{
- _MainModel::viewJSON(["error" => "косяк"]);
+ _MainModel::viewJSON(["error" => "Неверные параметры"]);
  die();
 }
 }
