@@ -1,8 +1,8 @@
 <?php
  
-class TestPresenter extends _MainPresenter(){
+class TestPresenter extends _MainPresenter{
 
-pubic function info(){
+pubic function infoG(){
 echo 123;
 
 }
