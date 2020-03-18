@@ -53,7 +53,7 @@ else _MainModel::viewJSON(["error" => "Данные не найдены"]);
 //Добавление записи
 public function addNewBuilding(){
  $status= $this->checkParams();
-if(status==0){
+if($status==0){
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
 if($result!=null)
