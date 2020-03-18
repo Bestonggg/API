@@ -33,7 +33,7 @@ if(isset($_GET['id'])){
 }
 //Метод проверки параметров GET
 public function checkParams(){
-   if(!isset(&_GET['town','street','number']))
+   if(!isset($_GET['town','street','number']))
    _MainModel::viewJSON(["error" => "косяк"]);
 
 }
