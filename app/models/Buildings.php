@@ -33,7 +33,7 @@ if(isset($_GET['id'])){
 }
 //Метод проверки параметров GET
 public function checkParams(){
-   if(isset($_GET['town'])){
+   if(isset($_GET['town'])&&isset($_GET['street'])&&isset($_GET['number'])){
   
    return 0;
    }
