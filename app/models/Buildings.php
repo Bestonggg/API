@@ -35,10 +35,11 @@ if(isset($_GET['id'])){
 
 //Метод проверки параметров GET
 public function checkParams(){
-if(!isset($_GET['town'] && $_GET['street'] &&$_GET['number']){
-_MainModel::viewJSON(["error" => "Неверные параметры"]);
-die();
-}
+    if(!isset($_GET['town'] && $_GET['street'] &&$_GET['number'])
+    
+      _MainModel::viewJSON(["error" => "Неверные параметры"]);
+       
+
 }
 
 //Вывод списка зданий
