@@ -40,7 +40,7 @@ public function checkParams(){
 
 //Вывод списка зданий
 public function getListBuildings(){
-checkParams();
+$this->checkParams();
 $result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
 if($result!=null)
 _MainModel::viewJSON($result);
