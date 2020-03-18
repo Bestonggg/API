@@ -30,7 +30,7 @@ if(isset($_GET['id'])){
 
 
                                            
-
+}
 
 //Вывод списка зданий
 public function getListBuildings(){
