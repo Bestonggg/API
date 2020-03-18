@@ -14,17 +14,17 @@ if(isset($_GET['town'])){
 }
 
 
-elseif(isset($_GET['street'])){
+if(isset($_GET['street'])){
  
     $this->street = $_GET['street'];
 }
 
-elseif(isset($_GET['number'])){
+if(isset($_GET['number'])){
  
     $this->number = $_GET['number'];
 }
 
-elseif(isset($_GET['id'])){
+if(isset($_GET['id'])){
 
     $this->id = $_GET['id'];
 }
