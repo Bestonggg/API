@@ -2,7 +2,7 @@
  
 class TestPresenter extends _MainPresenter{
 
-pubic function infoG(){
+public function infoG(){
 echo 123;
 
 }
