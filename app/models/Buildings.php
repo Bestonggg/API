@@ -40,6 +40,7 @@ public function getListBuildings(){
 
 $result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
 if($result!=null)
+ json_encode($result);
 _MainModel::viewJSON($result);
 else _MainModel::viewJSON(["error" => "Данные не найдены"]);
 }
@@ -53,12 +54,12 @@ public function addNewBuilding(){
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
 if($result!=null)
-return _MainModel::viewJSON($result);
+ _MainModel::viewJSON($result);
 
-else return _MainModel::viewJSON(["error" => "Ошибка заполнения"]);
+else  _MainModel::viewJSON(["error" => "Ошибка заполнения"]);
 }
 else{
- return _MainModel::viewJSON(["error" => "Неверные параметры"]);
+  _MainModel::viewJSON(["error" => "Неверные параметры"]);
  die();
 }
 }
