@@ -42,7 +42,7 @@ $_result_JSON;
 $result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
 if($result!=null){
 
-$_result_JSON _MainModel::viewJSON($result);
+$_result_JSON= _MainModel::viewJSON($result);
 }
 else  $_result_JSON=_MainModel::viewJSON(["error" => "Данные не найдены"]);
 return $_result_JSON;
