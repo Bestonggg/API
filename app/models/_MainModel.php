@@ -70,26 +70,26 @@ class _MainModel extends DB{
             if(!self::isMobile()){
                 
                 header('Content-type:application/json;charset=utf-8');
-                echo json_encode($result, JSON_UNESCAPED_UNICODE);
+                return json_encode($result, JSON_UNESCAPED_UNICODE); //косяк
             }
             else {
 
                 if(!empty($_GET['callback'])){
 
                     header('Content-Type: application/javascript');
-                    echo $_GET['callback'] . ' (' . json_encode($result, JSON_UNESCAPED_UNICODE) . ');';
+                    return $_GET['callback'] . ' (' . json_encode($result, JSON_UNESCAPED_UNICODE) . ');';
 
                 }
                 else{
-                    echo "Error! Not callback !";
+                    return "Error! Not callback !";
                 }
             }
         }
         else{
-            echo ("Empty data for view json");
+            return ("Empty data for view json");
         }
 
-    }
+    } 
 
     function view ($path, $data = []) {
 

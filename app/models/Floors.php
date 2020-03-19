@@ -8,23 +8,20 @@ public $building_id;
 
 function __construct (){
 
-if(isset($_GET['id'])){
- $this->id = $_GET['id'];
-}
+    if(isset($_GET['id'])){
+        $this->id = $_GET['id'];
+    }
 
-if(isset($_GET['plan'])){
+    if(isset($_GET['plan'])){
  
-    $this->plan = $_GET['plan'];
-}
+        $this->plan = $_GET['plan'];
+    }
 
-if(isset($_GET['building_id'])){
+    if(isset($_GET['building_id'])){
  
-    $this->building_id = $_GET['building_id'];
-}
-
-
-
-
+        $this->building_id = $_GET['building_id'];
+    }
+    
 }
 
 
