@@ -69,7 +69,7 @@ class _MainModel extends DB{
 
             if(!self::isMobile()){
                 
-                header('Content-type:application/json;charset=utf-8');
+                //header('Content-type:application/json;charset=utf-8');
                 return json_encode($result, JSON_UNESCAPED_UNICODE); 
             }
             else {
