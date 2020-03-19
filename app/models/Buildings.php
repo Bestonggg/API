@@ -53,12 +53,12 @@ public function addNewBuilding(){
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
 if($result!=null)
-_MainModel::viewJSON($result);
+return _MainModel::viewJSON($result);
 
-else _MainModel::viewJSON(["error" => "Ошибка заполнения"]);
+else return _MainModel::viewJSON(["error" => "Ошибка заполнения"]);
 }
 else{
- _MainModel::viewJSON(["error" => "Неверные параметры"]);
+ return _MainModel::viewJSON(["error" => "Неверные параметры"]);
  die();
 }
 }
@@ -69,7 +69,7 @@ if(isset($_GET['town'])&&isset($_GET['street'])&&isset($_GET['number'])&&isset($
 _MainModel::table("buildings")->edit(array("town" => $this->town, "street" =>$this->street,"number"=>$this->number), array("id" => $this->id))->send();
 }
 else{
- _MainModel::viewJSON(["error" => "Неверные параметры"]);
+ return _MainModel::viewJSON(["error" => "Неверные параметры"]);
  die();
 }
 
