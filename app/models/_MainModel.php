@@ -490,7 +490,7 @@ class _MainModel extends DB{
 
         if(array_key_exists($key, self::$params_url)){
             
-            if(self::$params_url[$key] != ''){
+            if(self::$params_url[$key] != ""){
 
                 return true;
 
