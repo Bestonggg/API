@@ -490,7 +490,7 @@ class _MainModel extends DB{
 
         if(array_key_exists($key, self::$params_url)){
             
-            if(self::$params_url[$key] != ""){
+            if(self::$params_url[$key] != null){
 
                 return true;
 
@@ -514,8 +514,8 @@ class _MainModel extends DB{
 
             foreach ($_POST as $k => $v) {
                 if( isset($v) ){
-                    self::$params_url[$k] = filter_input(INPUT_POST, $k);
-                    //trim(filter_input(INPUT_POST, $k), $allowed_char);
+                    self::$params_url[$k] =  trim(filter_input(INPUT_POST, $k), $allowed_char);
+                   
                 }
             }
 
