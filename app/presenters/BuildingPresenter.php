@@ -6,6 +6,9 @@ class BuildingPresenter extends _MainPresenter {
 
 	
 		
+	    public function addNewBuilding1(){
+	     echo(new Test())->addNewBuilding1();
+	    }
 		
 
 		public function getListBuildings(){
