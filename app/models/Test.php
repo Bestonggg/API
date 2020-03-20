@@ -29,7 +29,7 @@ if(isset($_GET['id'])){
 
     $this->id = $_GET['id'];
 }
-setParams();
+$this->setParams();
 }
 
 public function addNewBuilding1(){
