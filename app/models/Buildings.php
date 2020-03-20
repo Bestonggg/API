@@ -52,8 +52,7 @@ else  _MainModel::viewJSON(["error" => "Данные не найдены"]);
 public function addNewBuilding(){
  
   if(isset($_GET['town'])&&isset($_GET['street'])&&isset($_GET['number'])){
-  setParams();
-
+ 
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
 if($result!=null)
