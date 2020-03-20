@@ -35,7 +35,7 @@ if(isset($_GET['id'])){
 public function addNewBuilding1(){
  
  $status;
-  if(!_MainModel::is_var("town")){
+  if(_MainModel::is_var($_GET['town'])){
 
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 

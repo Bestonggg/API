@@ -490,7 +490,7 @@ class _MainModel extends DB{
 
         if(array_key_exists($key, self::$params_url)){
             
-            if(self::$params_url[$key] != null){
+            if(self::$params_url[$key] != ''){
 
                 return true;
 
@@ -526,7 +526,7 @@ class _MainModel extends DB{
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                    self::$params_url[$k] = trim(filter_input(INPUT_GET, $v), $allowed_char);
+                    self::$params_url[$k] = trim(filter_input(INPUT_GET, $k), $allowed_char);
                 }
                 
             }
