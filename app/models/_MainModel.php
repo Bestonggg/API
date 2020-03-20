@@ -497,8 +497,11 @@ class _MainModel extends DB{
             }else
                 return false;
 
-        } else 
+        } else {
+        echo var_dump($_GET);
             return false;
+            }
+            
     }
 
     private function setParams(){
