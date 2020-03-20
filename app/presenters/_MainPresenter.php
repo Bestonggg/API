@@ -7,7 +7,7 @@
  * branch b1
  */
 
-class _MainPresenter {
+class _MainPresenter{
 
 	function __construct (){}
 
