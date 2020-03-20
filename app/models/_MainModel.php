@@ -500,8 +500,7 @@ class _MainModel extends DB{
         } else {
          echo var_dump($key." ключ");
         echo var_dump(self::viewJSON(self::$params_url));
-          $tust=  $this->setParams();
-          echo var_dump($tust);
+        
             return false;
             }
             
@@ -526,7 +525,7 @@ class _MainModel extends DB{
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                    self::$params_url[$k] = trim(filter_input(INPUT_GET, $k), $allowed_char);
+                    self::$params_url[$k] = trim(filter_input(INPUT_GET, $v), $allowed_char);
                 }
                 
             }
