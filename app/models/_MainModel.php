@@ -498,7 +498,8 @@ class _MainModel extends DB{
                 return false;
 
         } else {
-        echo var_dump($_GET);
+         echo var_dump($key);
+        echo var_dump($params_url);
             return false;
             }
             
