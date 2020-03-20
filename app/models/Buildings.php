@@ -63,9 +63,10 @@ else  _MainModel::viewJSON(["error" => "Ошибка заполнения"]);
 else{
   _MainModel::viewJSON(["error" => "Неверные параметры"]);
   $status=-1;
+  var_damp($status);
  die();
 }
-finally {var_damp($status);}
+var_damp($status);
 }
 
 //Редактирование записи
