@@ -50,9 +50,9 @@ else  _MainModel::viewJSON(["error" => "Данные не найдены"]);
 
 //Добавление записи
 public function addNewBuilding(){
- 
+ $status;
   if(_MainModel::is_var($_GET['town'])&&_MainModel::is_var($_GET['street'])&&_MainModel::is_var($_GET['number'])){
- 
+ $status=0;
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
 if($result!=null)
@@ -62,8 +62,10 @@ else  _MainModel::viewJSON(["error" => "Ошибка заполнения"]);
 }
 else{
   _MainModel::viewJSON(["error" => "Неверные параметры"]);
+  $status=-1;
  die();
 }
+finally {var_damp($status);}
 }
 
 //Редактирование записи
