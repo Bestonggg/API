@@ -499,7 +499,7 @@ class _MainModel extends DB{
 
         } else {
          echo var_dump($key." ключ");
-        echo var_dump(self::$params_url)." Массив");
+        echo var_dump(self::$params_url." Массив");
             return false;
             }
             
