@@ -33,9 +33,9 @@ if(isset($_GET['id'])){
 }
 
 public function addNewBuilding1(){
-  echo var_dump($this);
+ 
  $status;
-  if(_MainModel::is_var($this->town))/*&&_MainModel::is_var($this->street)&&_MainModel::is_var($this->number))*/{
+  if(_MainModel::is_var("town")&&_MainModel::is_var("street")&&_MainModel::is_var("number")){
 
 $result=_MainModel::table("buildings")->add(array("town" => $this->town, "street" => $this->street,"number"=>$this->number))->send(); 
 
