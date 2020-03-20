@@ -33,6 +33,7 @@ if(isset($_GET['id'])){
 }
 
 public function addNewBuilding1(){
+  echo var_dump($this);
  $status;
   if(_MainModel::is_var($this->town))/*&&_MainModel::is_var($this->street)&&_MainModel::is_var($this->number))*/{
 
