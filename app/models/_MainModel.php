@@ -498,8 +498,8 @@ class _MainModel extends DB{
                 return false;
 
         } else {
-         echo var_dump($key." ключ");
-        echo var_dump(self::viewJSON(self::$params_url));
+         echo var_dump($key." ключ\n");
+        echo var_dump(self::$params_url);
         
             return false;
             }
