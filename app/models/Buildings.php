@@ -39,7 +39,7 @@ public function getListBuildings(){
 
 
 
-$result= _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send();
+$result=setParams( _MainModel::table("buildings")->get(array("id", "town","street","number"))->pagination(0,6)->send());
 if($result!=null){
 
  _MainModel::viewJSON($result);
