@@ -50,6 +50,7 @@ else  _MainModel::viewJSON(["error" => "Данные не найдены"]);
 
 //Добавление записи
 public function addNewBuilding(){
+var_dump($_GET);
  $status;
   if(_MainModel::is_var("town"))/*&&_MainModel::is_var($this->street)&&_MainModel::is_var($this->number))*/{
 
