@@ -524,7 +524,7 @@ class _MainModel extends DB{
         }
 
         if(count($_GET)){
-
+            var_dump($_GET);
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
