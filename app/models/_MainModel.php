@@ -491,9 +491,9 @@ class _MainModel extends DB{
 
     public static function is_var($key){
 
-        if(array_key_exists($key, self::$params_url)){
+        if(array_key_exists($key, $this->params_url_test)){
             
-            if(self::$params_url[$key] != ''){
+            if($this->params_url[$key] != ''){
 
                 return true;
 
@@ -502,7 +502,7 @@ class _MainModel extends DB{
 
         } else {
           var_dump($key." ключ");
-         var_dump(self::$params_url_test);
+         var_dump($this->params_url_test);
         
             return false;
             }
@@ -529,7 +529,7 @@ class _MainModel extends DB{
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                    self::$params_url_test[$k] = filter_input(INPUT_GET, $k);
+                    $this->params_url_test[$k] = filter_input(INPUT_GET, $k);
                     //trim(filter_input(INPUT_GET, $k), $allowed_char);
                 }
                 
