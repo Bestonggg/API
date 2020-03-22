@@ -491,7 +491,7 @@ class _MainModel extends DB{
 
     public static function is_var($key){
 
-    $array=$this->params_url_test;
+    $array=$this->$params_url_test;
         if(array_key_exists($key, $array)){
             
             if($array != ''){
