@@ -503,7 +503,8 @@ class _MainModel extends DB{
 
         } else {
           var_dump($key." ключ");
-         var_dump(self::$params_url."массив");
+         var_dump(self::$params_url);
+         var_dump("massive");
         
             return false;
             }
