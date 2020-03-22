@@ -501,8 +501,8 @@ class _MainModel extends DB{
                 return false;
 
         } else {
-         echo var_dump($key." ключ");
-        echo var_dump(self::$params_url);
+          var_dump($key." ключ");
+         var_dump(self::$params_url);
         
             return false;
             }
