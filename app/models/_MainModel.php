@@ -3,6 +3,7 @@
 class _MainModel extends DB{
 
      //GET and POST params url
+     public $params_url_test=[];
     public static $params_url = [];
 
     public static $query;
@@ -501,7 +502,7 @@ class _MainModel extends DB{
 
         } else {
           var_dump($key." ключ");
-         var_dump(self::$params_url);
+         var_dump(self::$params_url_test);
         
             return false;
             }
@@ -528,7 +529,7 @@ class _MainModel extends DB{
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                    self::$params_url[$k] = filter_input(INPUT_GET, $k);
+                    self::$params_url_test[$k] = filter_input(INPUT_GET, $k);
                     //trim(filter_input(INPUT_GET, $k), $allowed_char);
                 }
                 
