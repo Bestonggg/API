@@ -51,6 +51,8 @@ class _MainModel extends DB{
         
         $this->connect();
         $this->setParams();
+        
+        var_dump(self::params_url);
     }
 
     public static function viewJSON($json = null) {
