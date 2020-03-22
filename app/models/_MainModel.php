@@ -493,7 +493,7 @@ class _MainModel extends DB{
 
         if(array_key_exists($key, $this->params_url_test)){
             
-            if($this->params_url[$key] != ''){
+            if($this->params_url_test[$key] != ''){
 
                 return true;
 
