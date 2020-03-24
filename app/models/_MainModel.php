@@ -529,10 +529,11 @@ class _MainModel extends DB{
         }
 
         if(count($_GET)){
-            $this->test=25;
+           
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
+                 $this->test=25;
                     self::$params_url[$k] =trim(filter_input(INPUT_GET, $k), $allowed_char);
                 }
                 
