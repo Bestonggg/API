@@ -503,9 +503,10 @@ class _MainModel extends DB{
 
         } else {
           var_dump($key." ключ");
-         var_dump(self::$params_url);
-         var_dump("massive");
-        var_dump(count($_GET));
+          var_dump(self::$params_url);
+          var_dump("massive");
+          var_dump(count($_GET));
+          
             return false;
             }
             
@@ -531,7 +532,7 @@ class _MainModel extends DB{
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                    self::$params_url[$k] =trim(filter_input(INPUT_GET, $k),  FILTER_NULL_ON_FAILURE);
+                    self::$params_url[$k] =trim(filter_input(INPUT_GET, $k), $allowed_char);
                 }
                 
             }
