@@ -3,8 +3,8 @@
 class _MainModel extends DB{
 
      //GET and POST params url
-     public $params_url_test=[];
-    public static $params_url = [];
+    
+    public static - = [];
 
     public static $query;
 
@@ -513,7 +513,7 @@ class _MainModel extends DB{
 
     private function setParams(){
 
-        $allowed_char = " \t\n\r\0\x0B'";
+        $allowed_char = "\t\n\r\0\x0B'";
 
         if(count($_POST)){
 
@@ -531,7 +531,7 @@ class _MainModel extends DB{
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                    self::$params_url[$k] =trim(filter_input(INPUT_GET, $k), $allowed_char);
+                    self::$params_url[$k] =trim(filter_input(INPUT_GET, $k),  FILTER_NULL_ON_FAILURE);
                 }
                 
             }
