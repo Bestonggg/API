@@ -4,7 +4,7 @@ class _MainModel extends DB{
 
      //GET and POST params url
     
-    public static  = [];
+    public static $params_url = [];
 
     public static $query;
 
