@@ -4,6 +4,7 @@ class _MainModel extends DB{
 
      //GET and POST params url
     
+    public $test='';
     public static $params_url = [];
 
     public static $query;
@@ -505,7 +506,7 @@ class _MainModel extends DB{
           var_dump($key." ключ");
           var_dump(self::$params_url);
           var_dump("massive");
-          var_dump(count($_GET));
+          var_dump($this->test));
           
             return false;
             }
@@ -514,7 +515,7 @@ class _MainModel extends DB{
 
     private function setParams(){
 
-        $allowed_char = "\t\n\r\0\x0B'";
+        $allowed_char = " \t\n\r\0\x0B";
 
         if(count($_POST)){
 
@@ -528,7 +529,7 @@ class _MainModel extends DB{
         }
 
         if(count($_GET)){
-            
+            $this->test=25;
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
