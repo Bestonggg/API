@@ -505,7 +505,7 @@ class _MainModel extends DB{
           var_dump($key." ключ");
          var_dump(self::$params_url);
          var_dump("massive");
-        var_dump(count($_GET);
+        var_dump(count($_GET));
             return false;
             }
             
