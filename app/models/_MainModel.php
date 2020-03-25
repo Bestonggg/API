@@ -493,10 +493,10 @@ class _MainModel extends DB{
     public static function is_var($key){
 
  
-        if(array_key_exists($key, _MainModel::$params_url)){
+        if(array_key_exists($key, (new _MainModel())->test)){
             
-            if(_MainModel::$params_url != ''){
- var_dump(_MainModel::$params_url);
+            if((new _MainModel())->test != ''){
+
                 return true;
 
             }else
