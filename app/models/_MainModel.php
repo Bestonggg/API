@@ -533,8 +533,9 @@ class _MainModel extends DB{
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                 $this->test=25;
+                 
                     self::$params_url[$k] = trim(filter_input(INPUT_GET, $k), $allowed_char);
+                    $this->test=self::$params[$k];
                 }
                 
             }
