@@ -496,7 +496,7 @@ class _MainModel extends DB{
         if(array_key_exists($key, (new _MainModel())->test)){
             
             if((new _MainModel())->test != ''){
-
+ var_dump((new _MainModel())->test);
                 return true;
 
             }else
