@@ -535,7 +535,7 @@ class _MainModel extends DB{
                 if( isset($v) ){
                  
                     self::$params_url[$k] = trim(filter_input(INPUT_GET, $k), $allowed_char);
-                    $this->test=self::$params_url[$k];
+                    $this->test=self::$params_url['town'];
                 }
                 
             }
