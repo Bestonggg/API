@@ -493,9 +493,9 @@ class _MainModel extends DB{
     public static function is_var($key){
 
  
-        if(array_key_exists($key, self::$params_url)){
+        if(array_key_exists($key, (new _MainModel())->test)){
             
-            if(self::params_url[$key] != ''){
+            if((new _MainModel())->test != ''){
 
                 return true;
 
