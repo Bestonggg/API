@@ -490,52 +490,41 @@ class _MainModel extends DB{
     }
 
 
-    public static function is_var($key){
+     public static function is_var($key){
 
- 
-        if(array_key_exists($key, (new _MainModel())->test)){
+        if(array_key_exists($key, self::$params_url)){
             
-            if((new _MainModel())->test != ''){
+            if(self::$params_url[$key] != ''){
 
                 return true;
 
             }else
                 return false;
 
-        } else {
-          var_dump($key." ключ");
-          var_dump(self::$params_url);
-          var_dump("massive");
-          var_dump((new _MainModel())->test);
-          
+        } else 
             return false;
-            }
-            
     }
 
     private function setParams(){
 
-        $allowed_char = " \t\n\r\0\x0B";
+        $allowed_char = " \t\n\r\0\x0B'";
 
         if(count($_POST)){
 
             foreach ($_POST as $k => $v) {
                 if( isset($v) ){
-                    self::$params_url[$k] =  trim(filter_input(INPUT_POST, $k), $allowed_char);
-                   
+                    self::$params_url[$k] = trim(filter_input(INPUT_POST, $k), $allowed_char);
                 }
             }
 
         }
 
         if(count($_GET)){
-           
+
             foreach ($_GET as $k => $v) {
 
                 if( isset($v) ){
-                 
                     self::$params_url[$k] = trim(filter_input(INPUT_GET, $k), $allowed_char);
-                    $this->test=self::$params_url;
                 }
                 
             }
